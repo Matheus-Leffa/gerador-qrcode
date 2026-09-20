@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gere QR Codes em PNG de forma simples e instantanea.">
+    <title>Gerador de QR Code</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="generator-card" aria-labelledby="page-title">
+            <div class="intro-panel">
+                <div class="brand-mark" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                <p class="eyebrow">QR CODE / PNG</p>
+                <h1 id="page-title">Gerador de QR Code</h1>
+                <p class="intro-copy">Transforme qualquer link, mensagem ou contato em uma imagem pronta para compartilhar.</p>
+                <div class="feature-note">
+                    <span class="feature-icon" aria-hidden="true">+</span>
+                    <span>Geração instantanea<br>sem armazenamento permanente</span>
+                </div>
+            </div>
+
+            <div class="workspace-panel">
+                <form id="qr-form" novalidate>
+                    <div class="field-header">
+                        <label for="content">Conteúdo do QR Code</label>
+                        <span id="character-count">0 / 500</span>
+                    </div>
+                    <textarea
+                        id="content"
+                        name="content"
+                        maxlength="500"
+                        placeholder="Cole um link ou digite uma mensagem..."
+                        autocomplete="off"
+                        required
+                    ></textarea>
+                    <p class="field-hint">Links, textos curtos e informações de contato funcionam bem.</p>
+
+                    <button class="primary-button" id="generate-button" type="submit">
+                        <span class="button-label">Gerar QR Code</span>
+                        <span class="button-arrow" aria-hidden="true">&#8599;</span>
+                    </button>
+                </form>
+
+                <div class="status-area" id="status-area" aria-live="polite">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span id="status-message">Pronto para gerar sua imagem.</span>
+                </div>
+
+                <div class="result-area" id="result-area">
+                    <div class="result-heading">
+                        <div>
+                            <p class="result-label">Sua imagem</p>
+                            <h2>QR Code gerado</h2>
+                        </div>
+                        <span class="success-badge">PNG</span>
+                    </div>
+                    <div class="qr-frame" id="qr-frame">
+                        <div class="placeholder-content" id="placeholder-content">
+                            <div class="placeholder-grid" aria-hidden="true"></div>
+                            <p>O QR Code aparecerá aqui</p>
+                        </div>
+                        <img id="qr-image" alt="QR Code gerado" hidden>
+                    </div>
+                    <button class="download-button" id="download-button" type="button" disabled>
+                        <span aria-hidden="true">&#8595;</span>
+                        Baixar QR Code
+                    </button>
+                </div>
+            </div>
+        </section>
+        <p class="footer-note">Feito para compartilhar. Gerado em memória.</p>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
