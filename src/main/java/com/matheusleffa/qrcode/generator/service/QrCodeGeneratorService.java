@@ -13,8 +13,17 @@ import java.io.IOException;
 @Service
 public class QrCodeGeneratorService {
 
+    private final QRCodeWriter qrCodeWriter;
+
+    public QrCodeGeneratorService() {
+        this(new QRCodeWriter());
+    }
+
+    QrCodeGeneratorService(QRCodeWriter qrCodeWriter) {
+        this.qrCodeWriter = qrCodeWriter;
+    }
+
     public byte[] generate(String content) throws WriterException, IOException {
-        QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(content, BarcodeFormat.QR_CODE, 200, 200);
 
         ByteArrayOutputStream pngOutputStream = new ByteArrayOutputStream();
