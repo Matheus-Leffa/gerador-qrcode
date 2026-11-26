@@ -30,6 +30,7 @@ A geração acontece em memória, sem persistência de dados, e a imagem resulta
 - HTML5
 - CSS3
 - JavaScript
+- JUnit 5 + Mockito
 
 ## Estrutura do projeto
 
@@ -51,6 +52,9 @@ qrcode.generator/
 │   │   │       └── js/
 │   └── test/
 │       └── java/
+│           └── com/matheusleffa/qrcode/generator/
+│               └── service/
+│                   └── QrCodeGeneratorServiceTest.java
 ├── pom.xml
 ├── mvnw
 ├── mvnw.cmd
@@ -140,6 +144,41 @@ Em seguida, execute:
 
 ```bash
 java -jar target/qrcode.generator-0.0.1-SNAPSHOT.jar
+```
+
+## Testes unitários
+
+Os testes unitários utilizam JUnit 5 e Mockito para validar o comportamento da geração de QR Codes de forma isolada.
+
+Os casos existentes em `QrCodeGeneratorServiceTest` cobrem:
+
+- geração correta dos bytes de uma imagem PNG;
+- uso do formato `QR_CODE` e das dimensões `200 x 200`;
+- propagação de `WriterException` durante a codificação;
+- propagação de `IOException` durante a escrita da imagem.
+
+Para executar toda a suíte de testes:
+
+```bash
+./mvnw test
+```
+
+No Windows PowerShell ou CMD:
+
+```bash
+mvnw.cmd test
+```
+
+Para executar somente os testes do serviço:
+
+```bash
+./mvnw -Dtest=QrCodeGeneratorServiceTest test
+```
+
+No Windows:
+
+```bash
+mvnw.cmd -Dtest=QrCodeGeneratorServiceTest test
 ```
 
 ## Observações
